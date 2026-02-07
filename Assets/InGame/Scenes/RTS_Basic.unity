@@ -791,8 +791,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BasicRTS.Units.UnitSelectionManager
   selectAction: {fileID: -3663923202424931728, guid: 052faaac586de48259a63d0c4782560b, type: 3}
-  multiSelectAction: {fileID: 0}
-  moveAction: {fileID: 0}
+  multiSelectAction: {fileID: 2546539480320616274, guid: 052faaac586de48259a63d0c4782560b, type: 3}
+  moveAction: {fileID: -1915718905189366680, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   allUnits: []
   selectedUnits: []
   clickableLayerMask:

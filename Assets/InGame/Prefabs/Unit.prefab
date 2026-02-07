@@ -200,6 +200,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8cc3afb2acba4fe0ad272c865ee5b1fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BasicRTS.Unit.Unit
+  selectionIndicator: {fileID: 4941462995141620745}
 --- !u!1 &4941462995141620745
 GameObject:
   m_ObjectHideFlags: 0
