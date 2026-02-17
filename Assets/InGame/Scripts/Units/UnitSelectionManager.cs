@@ -1,4 +1,6 @@
 using System.Collections.Generic;
+using System.Linq;
+using BasicRTS.Units.Controllers;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityUtils;
@@ -16,11 +18,17 @@ namespace BasicRTS.Units {
         
         [SerializeField] LayerMask clickableLayerMask;
         [SerializeField] LayerMask groundLayerMask;
+        [SerializeField] LayerMask attackLayerMask;
         [SerializeField] GameObject groundMarker;
         [SerializeField] Camera cam;
         
         public List<Unit> AllUnits => allUnits;
         public List<Unit> SelectedUnits => selectedUnits;
+
+        public bool AttackCursorVisible {
+            get;
+            private set;
+        }
         
         
         Vector2 pressedPosition;
@@ -74,6 +82,28 @@ namespace BasicRTS.Units {
                     //Debug.Log("Ground marker : " + groundMarker.transform.position);
                     groundMarker.SetActive(false);
                     groundMarker.SetActive(true);
+                }
+            }
+
+            //Attack Target
+            if (selectedUnits.Count > 0 && AtLeastOneOffensiveUnit()) {
+                RaycastHit hit;
+                Ray ray = cam.ScreenPointToRay(Mouse.current.position.ReadValue());
+
+                if (Physics.Raycast(ray, out hit, Mathf.Infinity, attackLayerMask)) {
+                    Debug.Log("Enemy Hovered with mouse");
+                    AttackCursorVisible = true;
+                    if (moveAction.action.WasCompletedThisFrame()) {
+                        Transform target = hit.transform;
+                        foreach (var selectedUnit in selectedUnits) {
+                            if (selectedUnit.TryGetComponent(out AttackController attackController)) {
+                                attackController.TargetToAttack = target;
+                            }
+                        }
+                    }
+                }
+                else {
+                    AttackCursorVisible = false;
                 }
             }
         }
@@ -140,5 +170,10 @@ namespace BasicRTS.Units {
             unit.SelectionIndicator.SetActive(false);
             selectedUnits.Remove(unit);
         }
+        
+        public bool AtLeastOneOffensiveUnit() {
+            return selectedUnits.Any(unit => unit.GetComponent<AttackController>() != null);
+        }
+        
     }
 }

@@ -9,6 +9,7 @@ namespace BasicRTS.Units {
         
         public InputActionReference actionRef;
         public LayerMask groundLayerMask;
+        public bool isCommandToMove;
 
         void Start() {
             cam = Camera.main;
@@ -21,8 +22,13 @@ namespace BasicRTS.Units {
                 Ray ray = cam.ScreenPointToRay(Mouse.current.position.ReadValue());
 
                 if (Physics.Raycast(ray, out hit, Mathf.Infinity, groundLayerMask)) {
+                    isCommandToMove = true;
                     agent.SetDestination(hit.point);
                 }
+            }
+
+            if (agent.hasPath == false || agent.remainingDistance <= agent.stoppingDistance) {
+                isCommandToMove = false;
             }
         }
     }
