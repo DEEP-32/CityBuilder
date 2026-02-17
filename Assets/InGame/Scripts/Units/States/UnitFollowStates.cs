@@ -36,8 +36,8 @@ namespace BasicRTS.Units.States {
                 );
 
                 if (distFromTarget < attackDistance) {
-                    //animator.SetBool("isAttacking", true);
-                    //navMeshAgent.SetDestination(animator.transform.position);
+                    navMeshAgent.SetDestination(animator.transform.position);
+                    animator.SetBool("isAttacking", true);
                     Debug.Log("Units attacking");
                 }
             }
