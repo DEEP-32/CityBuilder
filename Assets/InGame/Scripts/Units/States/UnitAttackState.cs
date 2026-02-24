@@ -15,6 +15,7 @@ namespace BasicRTS.Units.States {
 
             agent = animator.GetComponent<NavMeshAgent>();
             attackController = animator.GetComponent<AttackController>();
+            attackController.SetAttackMaterial();
         }
 
         public override void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex) {

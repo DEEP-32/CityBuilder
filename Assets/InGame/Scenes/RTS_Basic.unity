@@ -1507,6 +1507,26 @@ PrefabInstance:
       propertyPath: m_Name
       value: Unit
       objectReference: {fileID: 0}
+    - target: {fileID: 6116534085116015023, guid: a0277c4dfe38e6d4ba6f8fa1f2615813, type: 3}
+      propertyPath: idleStateMaterial
+      value: 
+      objectReference: {fileID: 2100000, guid: ebe9bc8a978a8494dbdb60c3302b6036, type: 2}
+    - target: {fileID: 6116534085116015023, guid: a0277c4dfe38e6d4ba6f8fa1f2615813, type: 3}
+      propertyPath: attackStateMaterial
+      value: 
+      objectReference: {fileID: 2100000, guid: 5ebbdab4b9bf5884eba120d1ae99f933, type: 2}
+    - target: {fileID: 6116534085116015023, guid: a0277c4dfe38e6d4ba6f8fa1f2615813, type: 3}
+      propertyPath: followStateMaterial
+      value: 
+      objectReference: {fileID: 2100000, guid: bfa13008f4e4ea747bff1dacaebf0ee4, type: 2}
+    - target: {fileID: 6686339608378325784, guid: a0277c4dfe38e6d4ba6f8fa1f2615813, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6686339608378325784, guid: a0277c4dfe38e6d4ba6f8fa1f2615813, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

@@ -13,6 +13,7 @@ namespace BasicRTS.Units.States {
         public override void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex) {
             attackController = animator.GetComponent<AttackController>();
             navMeshAgent = animator.GetComponent<NavMeshAgent>();
+            attackController.SetFollowMaterial();
         }
 
         public override void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex) {
